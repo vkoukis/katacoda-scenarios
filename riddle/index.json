@@ -1,0 +1,44 @@
+{
+  "title": "The Riddle",
+  "description": "Experience The Riddle.",
+  "difficulty": "Beginner to Wizard",
+  "time": "9-99999 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Just start!",
+        "text": "step1.md"
+      },
+      {
+        "title": "Next steps",
+        "text": "step2.md",
+	"verify": "fail.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "katacoda-launch.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+	{
+	  "file": "riddle-setup",
+	  "target": "~/"
+	},
+        {
+	  "file": "root.bashrc",
+          "target": "~/"
+	}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

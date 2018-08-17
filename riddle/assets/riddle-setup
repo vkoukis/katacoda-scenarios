@@ -1,0 +1,43 @@
+# vkoukis, Fri Aug 17 06:09:12 EEST 2018
+
+# This is a Katacoda-specific setup script,
+# with a few workarounds, to download The Riddle and set up
+# an unprivileged user environment.
+#
+# NOTE: THIS IS NOT EXECUTED IN A CHILD, NOR GETTING SOURCED.
+# THIS IS SIMPLY *TYPED* INTO THE TERMINAL... FFS.
+
+# set -x
+set -e
+set -o pipefail
+
+RIDDLE_URL=http://www.cslab.ece.ntua.gr/courses/compsyslab/files/riddle/riddle.tgz
+RIDDLE_USER=riddle
+ROOT_BASHRC=/root/root.bashrc
+# Fix root's prompt
+# FIXME
+
+# Install a few packages.
+# Workaround APT eating our "terminal" input:
+# https://serverfault.com/questions/342697/prevent-sudo-apt-get-etc-from-swallowing-pasted-input-to-stdin
+
+apt-get install -y strace gdb gcc pastebinit </dev/null
+
+# Add unprivileged user
+adduser --disabled-password --gecos "The Riddle" "$RIDDLE_USER"
+
+# Extract everything to the user's home directory
+RIDDLE_HOME="$(getent passwd "$RIDDLE_USER" | cut -d: -f6)"
+
+RIDDLE_TMP=$(mktemp -p . -d)
+wget "$RIDDLE_URL" -O "$RIDDLE_TMP"/riddle.tgz
+tar --strip-components=1 -C "$RIDDLE_TMP" -xzvf "$RIDDLE_TMP"/riddle.tgz
+
+chown -R "$RIDDLE_USER":"$RIDDLE_USER" "$RIDDLE_TMP"
+mv "$RIDDLE_TMP"/* "$RIDDLE_HOME"
+rmdir "$RIDDLE_TMP"
+
+# Ensure root has a sane .bashrc, no more '$' prompt nonsense
+mv -f "$ROOT_BASHRC" /root/.bashrc
+
+echo 'All set!' 1>&2

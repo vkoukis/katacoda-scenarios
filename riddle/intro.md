@@ -68,4 +68,5 @@ send mail to [vkoukis@cslab.ece.ntua.gr](mailto:vkoukis@cslab.ece.ntua.gr).
 Releases - Changelog
 ====================
 
+* 20180817-0927: Always allow strace by 'riddle' on their own processes.
 * 20180817-0927: Initial release on Katacoda.

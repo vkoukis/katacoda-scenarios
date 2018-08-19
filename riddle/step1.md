@@ -8,23 +8,9 @@ As user `riddle`, type:
 to get started!
 
 
-Save
-====
+Challenge 0
+===========
 
-As user `riddle`, type:
-
-`./riddle-save`{{execute}}
-
-to save your progress. Do not lose the resulting URL!
-
-
-Restore
-=======
-
-As user `riddle`, type:
-
-`./riddle-restore <URL>`{{execute}}
-
-to restore your progress from a previous save.
-
-*Q:* How does saving/restoring work?
+Challenge 0 shows this hint: "Processes run system calls".
+Use `strace` to see the system calls that the executable makes,
+maybe you'll find something interesting :)

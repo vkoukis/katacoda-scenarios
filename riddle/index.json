@@ -10,8 +10,12 @@
         "text": "step1.md"
       },
       {
+        "title": "Save/Restore",
+        "text": "step2.md"
+      },
+      {
         "title": "Next steps",
-        "text": "step2.md",
+        "text": "step3.md",
 	"verify": "fail.sh"
       }
     ],

@@ -1,17 +1,20 @@
-Next steps
-==========
-
-You can always open extra terminals and work in parallel.
-
-Root
+Save
 ====
 
-You can always become root, but you don't need to be root to play the game.
+As user `riddle`, type:
 
-That's it!
-==========
+`./riddle-save`{{execute}}
 
-Enjoy the game!
+to save your progress. Do not lose the resulting URL!
 
-To provide feedback, report a problem, or brag about your progress,
-send mail to [vkoukis@cslab.ece.ntua.gr](mailto:vkoukis@cslab.ece.ntua.gr).
+
+Restore
+=======
+
+As user `riddle`, type:
+
+`./riddle-restore <URL>`{{execute}}
+
+to restore your progress from a previous save.
+
+*Q:* How does saving/restoring work?
